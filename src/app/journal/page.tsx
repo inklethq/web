@@ -16,7 +16,9 @@ export const metadata = createPageMetadata({
 
 export default function JournalPage() {
   const featuredPost = journalPosts.find((post) => post.featured) ?? journalPosts[0];
-  const latestPosts = journalPosts.filter((post) => post.slug !== featuredPost.slug);
+  const latestPosts = journalPosts
+    .filter((post) => post.slug !== featuredPost.slug)
+    .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
 
   return (
     <>
