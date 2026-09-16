@@ -40,8 +40,8 @@ export const journalPosts: JournalPost[] = [
   {
     slug: "from-content-to-ink",
     category: "Product story",
-    title: "From content to ink.",
-    seoTitle: "From Content to Ink: Meet the New Portal Worker",
+    title: "Rethinking how information reaches you",
+    seoTitle: "Rethinking How Information Reaches You",
     excerpt:
       "A few notes at the end of the day. A clear plan beside your desk the next morning. Meet the Portal worker that helps turn what you send into something useful at a glance.",
     publishedAt: "2026-09-16",
