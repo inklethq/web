@@ -2,6 +2,8 @@ import { createPageMetadata } from "@/lib/metadata";
 import SdkHero from "@/components/SdkHero";
 import SdkPush from "@/components/SdkPush";
 import SdkLifecycle from "@/components/SdkLifecycle";
+import SdkEvents from "@/components/SdkEvents";
+import SdkControl from "@/components/SdkControl";
 import SdkResources from "@/components/SdkResources";
 import SdkGuardrails from "@/components/SdkGuardrails";
 import SdkStart from "@/components/SdkStart";
@@ -9,7 +11,7 @@ import { getSdkJsonLd } from "@/lib/structured-data";
 
 const TITLE = "inklet SDK - TypeScript for E-Ink Displays";
 const DESCRIPTION =
-  "Push text, links, images, and PDFs to inklet e-ink displays with the TypeScript SDK. inklet handles layout, room routing, and rendering.";
+  "Push text, links, images, and PDFs to inklet e-ink displays with the TypeScript SDK. Upload, analyze, follow the agent's event stream live, switch what a panel shows, or generate a Scene with no display at all.";
 
 export const metadata = createPageMetadata({
   title: TITLE,
@@ -23,6 +25,8 @@ export default function DevelopersPage() {
       <SdkHero />
       <SdkPush />
       <SdkLifecycle />
+      <SdkEvents />
+      <SdkControl />
       <SdkResources />
       <SdkGuardrails />
       <SdkStart />

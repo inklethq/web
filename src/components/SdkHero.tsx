@@ -6,14 +6,17 @@ const EXAMPLE = `import { Inklet } from "@inklethq/sdk";
 
 const inklet = new Inklet({ pat: process.env.INKLET_PAT! });
 
-await inklet.push.auto({
+const { analysis } = await inklet.push.auto({
   title: "Daily brief",
   intent: "Make the key update easy to scan",
   assets: [
     inklet.assets.text("Revenue is up 12% week over week."),
     inklet.assets.link("https://example.com/report"),
   ],
-});`;
+});
+
+const done = await inklet.analyses.wait(analysis);
+console.log(done.presentationIds);`;
 
 export default function SdkHero() {
   return (
@@ -32,8 +35,9 @@ export default function SdkHero() {
           <Rise delay={0.15}>
             <p className="text-lg text-[#888] leading-relaxed max-w-lg">
               A server-side TypeScript client for the paper on your walls. Hand
-              it text, a link, an image, or a PDF — Inklet does the layout,
-              picks the room, and renders for the panel.
+              it text, a link, an image, or a PDF — inklet does the layout,
+              picks the room, and renders for the panel. Follow the agent while
+              it works, or skip the AI and put a picture up as-is.
             </p>
           </Rise>
 

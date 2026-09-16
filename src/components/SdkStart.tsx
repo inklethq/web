@@ -1,10 +1,10 @@
-import { DOCS_URL, GITHUB_URL, NPM_URL, PACKAGE_NAME } from "@/data/sdk";
+import { CHANGELOG_URL, DOCS_URL, GITHUB_URL, NPM_URL, PACKAGE_NAME } from "@/data/sdk";
 
 const steps = [
   {
     number: "01",
     title: "Create a token",
-    body: "Personal access tokens are issued in the Portal dashboard and scoped to your displays.",
+    body: "Personal access tokens are issued under API tokens in the Portal, with a name and an optional expiry. Each is shown once — copy it into your environment, never into source.",
   },
   {
     number: "02",
@@ -14,8 +14,14 @@ const steps = [
   {
     number: "03",
     title: "Push something",
-    body: "One call puts words on a wall. Everything else is refinement.",
+    body: "One call puts words on a wall. Then watch the run, read a panel's history, or skip the agent and switch the image yourself.",
   },
+];
+
+const links = [
+  { label: "GitHub", href: GITHUB_URL },
+  { label: "npm", href: NPM_URL },
+  { label: "Changelog", href: CHANGELOG_URL },
 ];
 
 export default function SdkStart() {
@@ -26,9 +32,9 @@ export default function SdkStart() {
           Start with a token.
         </h2>
         <p className="text-[15px] text-[#888] text-center mb-16 max-w-lg mx-auto leading-relaxed">
-          The SDK is in developer preview. The surface is small on purpose and
-          stable enough to build on; breaking changes are announced in the
-          changelog.
+          The SDK is at 0.2 and still in developer preview. The surface is
+          small on purpose and stable enough to build on; breaking changes are
+          listed in the changelog with what to change.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 mb-16">
@@ -56,22 +62,17 @@ export default function SdkStart() {
           >
             Read the docs
           </a>
-          <a
-            href={GITHUB_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center px-7 py-3 border border-[#333] text-[#888] rounded-full text-sm font-medium hover:border-[#555] hover:text-[#f5f3ed] transition-colors"
-          >
-            GitHub
-          </a>
-          <a
-            href={NPM_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center px-7 py-3 border border-[#333] text-[#888] rounded-full text-sm font-medium hover:border-[#555] hover:text-[#f5f3ed] transition-colors"
-          >
-            npm
-          </a>
+          {links.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center px-7 py-3 border border-[#333] text-[#888] rounded-full text-sm font-medium hover:border-[#555] hover:text-[#f5f3ed] transition-colors"
+            >
+              {link.label}
+            </a>
+          ))}
         </div>
       </div>
     </section>

@@ -138,7 +138,7 @@ export function getSdkJsonLd() {
     programmingLanguage: "TypeScript",
     codeRepository: GITHUB_URL,
     description:
-      "Server-side TypeScript SDK for inklet e-ink displays — push text, links, images, and PDFs, and let Inklet handle layout, routing, and rendering.",
+      "Server-side TypeScript SDK for inklet e-ink displays — upload text, links, images, and PDFs, run inklet's agent over them, follow each run's event stream, and control what every panel shows.",
     offers: {
       "@type": "Offer",
       price: "0",

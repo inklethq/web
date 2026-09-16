@@ -6,11 +6,12 @@ const modes = [
     name: "Auto",
     title: "You have something worth showing and no opinion about where.",
     description:
-      "Inklet reads the assets, chooses the displays that can render them, and does the typesetting. Intent is a sentence of direction, not a template — it steers the layout without describing it.",
+      "inklet reads the assets, chooses the displays that can render them, and does the typesetting. Intent is a sentence of direction, not a template — it steers the layout without describing it. Add context: \"history\" and the agent may also read what you sent before.",
     code: `const result = await inklet.push.auto({
-  idempotencyKey: "daily-brief-2026-08-15",
+  idempotencyKey: "daily-brief-2026-09-15",
   title: "Daily brief",
   intent: "Make the key update easy to scan",
+  context: "history", // optional: read earlier uploads too
   assets: [
     inklet.assets.text("Revenue is up 12% week over week."),
     inklet.assets.link("https://example.com/report"),
@@ -20,9 +21,9 @@ const modes = [
   {
     number: "02",
     name: "Manual",
-    title: "You know the room. Inklet still sets the type.",
+    title: "You know the room. inklet still sets the type.",
     description:
-      "One display, named by id. The asset pipeline is unchanged — text, links, images, PDFs all still get summarised and laid out — but the routing decision stays yours.",
+      "One display, named by id. The agent still summarises and lays out — text, links, images, PDFs — but the routing decision stays yours.",
     code: `await inklet.push.manual({
   displayId: "display_123",
   assets: [
@@ -40,7 +41,7 @@ const modes = [
     name: "Hardcode",
     title: "You already made the picture.",
     description:
-      "Exactly one PNG or JPEG, to exactly one display, rendered as sent. Inklet scales it to the panel — your source does not have to arrive at 800×480.",
+      "Exactly one PNG or JPEG, to exactly one display, rendered as sent. No AI runs and no AI allowance is spent. inklet scales it to the panel — your source does not have to arrive at 800×480.",
     code: `await inklet.push.hardcode({
   displayId: "display_123",
   image: inklet.assets.image({
@@ -63,9 +64,11 @@ export default function SdkPush() {
           Three ways to put something on a wall.
         </h2>
         <p className="text-[#888] leading-relaxed max-w-xl mb-20">
-          They differ in how much of the decision you keep. All three take the
-          same assets, return the same result, and can be replayed safely with
-          an idempotency key.
+          They differ in how much of the decision you keep. Each is one call
+          over an upload and an analysis, hands back the Content and the
+          Analysis it started, and can be replayed safely under one idempotency
+          key. Auto and Manual run inklet&apos;s agent and need a Pro plan;
+          Hardcode runs no AI and stays on Free.
         </p>
 
         <div className="space-y-20">

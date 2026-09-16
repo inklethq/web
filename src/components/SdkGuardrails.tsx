@@ -1,15 +1,31 @@
+import Link from "next/link";
 import CodeBlock from "@/components/CodeBlock";
-import { API_BASE_URL, MAX_ASSETS_PER_CONTENT, MAX_ASSET_SIZE_MIB } from "@/data/sdk";
+import {
+  ANALYSIS_EVENT_TYPE_COUNT,
+  API_BASE_URL,
+  MAX_ASSETS_PER_CONTENT,
+  MAX_ASSET_SIZE_MIB,
+} from "@/data/sdk";
 
-const ERRORS = `import { InkletError, RateLimitError } from "@inklethq/sdk";
+const ERRORS = `import {
+  InkletError,
+  PermissionDeniedError,
+  RateLimitError,
+} from "@inklethq/sdk";
 
 try {
-  await inklet.displays.list();
+  await inklet.analyze({ contentIds: [content.id] });
 } catch (error) {
-  if (error instanceof RateLimitError) {
-    // Retry on your own schedule.
+  if (
+    error instanceof PermissionDeniedError &&
+    error.code === "plan_upgrade_required"
+  ) {
+    // A Pro-only run on the Free plan. Upgrade, then retry.
+  } else if (error instanceof RateLimitError) {
+    // quota_exceeded clears at details.resetAt;
+    // rate_limited clears with back-off.
   } else if (error instanceof InkletError) {
-    console.error(error.code, error.status, error.requestId);
+    console.error(error.code, error.requestId, error.details);
   }
 }`;
 
@@ -20,15 +36,15 @@ const guardrails = [
   },
   {
     title: "Uploads never carry the token",
-    body: "Binary assets go straight to temporary storage URLs. The token is sent only to Inklet endpoints, and requests refuse absolute URLs and cross-origin redirects.",
+    body: "Binary assets go straight to temporary storage URLs. The token is sent only to inklet endpoints, and requests refuse absolute URLs and cross-origin redirects.",
   },
   {
     title: "Safe to replay",
-    body: "Every push takes an idempotency key. Omit it and the SDK generates one, then hands it back — so your retry is the same call, not a second one.",
+    body: "Every Content and every Analysis is created under an idempotency key — yours, or one the SDK generates and hands back. Replaying a key returns the original resource, and the same key with a different body is a conflict, so a retry is the same call, never a second one.",
   },
   {
     title: "Errors you can act on",
-    body: "Every error extends InkletError and keeps the backend code, HTTP status, request ID, and structured details. Credentials are redacted from messages.",
+    body: "Every error extends InkletError and keeps the backend code, HTTP status, request ID, and structured details. The class comes from the status; the code and details are the stable parts. Messages are for logs — never branch on them.",
   },
 ];
 
@@ -73,8 +89,15 @@ export default function SdkGuardrails() {
                 <span className="font-[family-name:var(--font-ibm-plex-mono)] text-[13px] text-[#c9c6be]">
                   baseUrl
                 </span>{" "}
-                at a Compute Hub instead and the same code runs without anything
-                leaving your network.
+                at a{" "}
+                <Link
+                  href="/hub"
+                  className="text-[#c9c6be] underline underline-offset-4 decoration-[#444] hover:text-[#f5f3ed] hover:decoration-[#888] transition-colors"
+                >
+                  Compute Hub
+                </Link>{" "}
+                instead and the same code runs without anything leaving your
+                network.
               </p>
             </div>
 
@@ -92,15 +115,15 @@ export default function SdkGuardrails() {
                   {MAX_ASSETS_PER_CONTENT}
                 </p>
                 <p className="text-[12.5px] text-[#666] mt-1">
-                  assets per push
+                  assets per Content
                 </p>
               </div>
               <div>
                 <p className="font-[family-name:var(--font-ibm-plex-mono)] text-2xl text-[#f5f3ed] font-light">
-                  3
+                  {ANALYSIS_EVENT_TYPE_COUNT}
                 </p>
                 <p className="text-[12.5px] text-[#666] mt-1">
-                  output formats
+                  event types, a closed set
                 </p>
               </div>
             </div>
