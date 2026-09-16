@@ -10,7 +10,17 @@ export default function JournalArtwork({
   compact?: boolean;
 }) {
   return (
-    <div className="relative isolate aspect-[40/21] overflow-hidden bg-[#efede6]">
+    <div
+      className={`relative isolate aspect-[40/21] overflow-hidden ${
+        compact
+          ? // The featured row is as tall as its text column, so fill it
+            // rather than leaving a strip under a fixed-ratio box. Width is
+            // pinned too: with only the height fixed, aspect-ratio would
+            // widen the box past the cell instead of ignoring the ratio.
+            "md:w-full md:h-full"
+          : ""
+      } ${post.image && compact ? "bg-[#f5f3ed]" : "bg-[#efede6]"}`}
+    >
       {post.image ? (
         <Image
           src={post.image}
@@ -21,7 +31,9 @@ export default function JournalArtwork({
               ? "(min-width: 768px) 552px, calc(100vw - 48px)"
               : "(min-width: 1152px) 1104px, calc(100vw - 48px)"
           }
-          className="object-cover"
+          // Contain in the featured slot so nothing at the edges is cropped
+          // when the row runs taller than the image's own ratio.
+          className={compact ? "object-contain" : "object-cover"}
           loading="eager"
         />
       ) : (
