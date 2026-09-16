@@ -38,6 +38,105 @@ export interface JournalPost {
 
 export const journalPosts: JournalPost[] = [
   {
+    slug: "from-content-to-ink",
+    category: "Product story",
+    title: "From content to ink.",
+    seoTitle: "From Content to Ink: Meet the New Portal Worker",
+    excerpt:
+      "A few notes at the end of the day. A clear plan beside your desk the next morning. Meet the Portal worker that helps turn what you send into something useful at a glance.",
+    publishedAt: "2026-09-16",
+    readingTime: "4 min read",
+    author: "inklet team",
+    featured: true,
+    image: "/journal/from-content-to-ink.png",
+    imageAlt:
+      "From content to ink: the inklet Portal worker reads the brief, chooses a layout, renders the frame, and queues it for the display's next sync.",
+    screen: {
+      subtitle: "inklet Portal",
+      title: "From content\nto ink.",
+      detail: "A little preparation. A quieter morning.",
+      stamp: "Sep 16 09:00",
+      alt: "Introducing the new inklet Portal worker",
+    },
+    blocks: [
+      {
+        type: "paragraph",
+        text: "Imagine sitting down at your desk tomorrow morning. Beside your coffee is a small e-ink display with the three things you wanted to do first. You can start with the first one before opening the inbox. The plan is already there, in the place where you need it.",
+      },
+      {
+        type: "paragraph",
+        text: "The evening before, those three things were scattered across a meeting note, a message, and a few lines you wrote to yourself. You knew what mattered. Getting it into a form you would actually see tomorrow was the extra job left at the end of the day.",
+      },
+      {
+        type: "paragraph",
+        text: "That small gap is what we have been working on in inklet Portal. The new Portal worker takes the material you send, reads what you want to do with it, and prepares a frame for your display. It handles the work between having something worth remembering and giving it a place in the room.",
+      },
+      {
+        type: "heading",
+        text: "Start with what you already have",
+      },
+      {
+        type: "paragraph",
+        text: "At the end of the afternoon, you gather the notes for tomorrow and send them through Portal. They can still look like notes: a little context from the meeting, a reminder to follow up with someone, the task you did not get to finish. Add a short instruction: \"Make a short list of tomorrow's priorities for my desk.\"",
+      },
+      {
+        type: "paragraph",
+        text: "You do not need to turn that material into a finished design first. Your part is to provide the information and say what would make it useful. The worker reads the brief and uses that intent to guide the presentation.",
+      },
+      {
+        type: "heading",
+        text: "Give the important parts room",
+      },
+      {
+        type: "paragraph",
+        text: "A meeting note is written to preserve a conversation. A plan beside your desk has a different job: help you see what to do next. It needs a clear order, readable type, and enough space for each task to stand on its own.",
+      },
+      {
+        type: "paragraph",
+        text: "The worker chooses an available layout suited to your content and the display, then prepares the frame for e-ink. For your morning plan, that means arranging the priorities into a list you can read at a glance. You can keep your attention on what the list should say while Portal takes care of how it fits on the screen.",
+      },
+      {
+        type: "quote",
+        text: "The useful moment comes tomorrow, when you look up and know where to begin.",
+      },
+      {
+        type: "heading",
+        text: "Know where your note has gone",
+      },
+      {
+        type: "paragraph",
+        text: "After sending the plan, you can follow its progress in Portal. The timeline shows the content being prepared, the layout being chosen, the image being rendered, and the frame being queued for the display's next sync.",
+      },
+      {
+        type: "paragraph",
+        text: "That distinction is useful when you glance at the display and still see yesterday's page. A finished image may be waiting for the device to wake and sync. Portal makes that wait visible, so you can tell whether your content is still being prepared or is ready for the screen. You have a clearer answer to a simple question: what happened to the thing I just sent?",
+      },
+      {
+        type: "heading",
+        text: "Close the laptop with tomorrow in place",
+      },
+      {
+        type: "paragraph",
+        text: "Once the display syncs, the plan has somewhere to stay. In the morning, you can see it without retracing yesterday's tabs or remembering which app held the note. The same idea can bring a recipe to the kitchen counter or a few reminders to the hallway. The value comes from having the information where you will use it.",
+      },
+      {
+        type: "paragraph",
+        text: "Our hardware is still in development. This is the everyday experience we are building toward, and the new Portal worker is part of making it possible: less preparation between the information you already have and a page that belongs in your day.",
+      },
+      {
+        type: "paragraph",
+        text: "Think of one thing you would like to see when you sit down tomorrow. A short plan, a useful reminder, an idea worth keeping in view. That is where the story starts.",
+      },
+      {
+        type: "links",
+        links: [
+          { label: "Explore inklet Portal", href: "https://www.iminklet.com/portal" },
+          { label: "Open Portal", href: "https://portal.iminklet.com" },
+        ],
+      },
+    ],
+  },
+  {
     slug: "v0-1-is-coming",
     category: "SDK release",
     title: "inklet SDK v0.1: from your data to the wall",
@@ -46,7 +145,6 @@ export const journalPosts: JournalPost[] = [
     publishedAt: "2026-08-26",
     readingTime: "7 min read",
     author: "inklet team",
-    featured: true,
     image: "/v0.1-pencil-sketch.png",
     imageAlt:
       "The original pencil sketch announcing the inklet SDK v0.1 release",
