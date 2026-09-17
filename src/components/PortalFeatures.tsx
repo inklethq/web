@@ -4,19 +4,19 @@ const features = [
     number: "01",
     title: "One dashboard, every display",
     description:
-      "Control what appears on every inklet display from a single place. Update content, check status, and manage rooms — all from your browser or phone.",
+      "See what is on every panel, what has been sent and is waiting for it to wake, and everything it has shown before. Move to the next card, put an earlier one back, or send straight to one display — from the browser, the Mac app, or your phone.",
   },
   {
     number: "02",
-    title: "Sync the tools you use",
+    title: "A second brain that keeps everything",
     description:
-      "Connect Google Calendar, Notion, Obsidian, Todoist, and more. Your data flows in automatically — no copy-paste, no manual updates.",
+      "Every note, link, picture, and PDF you send is kept in Knowledge — searchable, and sorted into pending and organized. Ask for a summary of the last day, week, or month whenever you want one on a wall.",
   },
   {
     number: "03",
-    title: "AI-powered routing",
+    title: "AI that shows its work",
     description:
-      "Portal's AI decides what goes where. Recipes to the kitchen, meeting agendas to the study, weather to the hallway — context-aware, hands-free.",
+      "Let inklet choose the panel, or name one yourself. The agent reads your notes, checks the display, picks a layout, and every run has a live timeline you can open. Uploading, and showing a picture as-is, never spend an AI run.",
   },
 ];
 

@@ -3,6 +3,12 @@
 import { motion } from "framer-motion";
 import { rise, riseIn } from "@/lib/motion";
 
+const cards = [
+  { room: "Kitchen", widths: ["w-full", "w-3/4", "w-1/2"], caption: "Grocery list · on the screen" },
+  { room: "Study", widths: ["w-full", "w-5/6", "w-2/3"], caption: "Daily summary · waiting" },
+  { room: "Hallway", widths: ["w-full", "w-4/5"], caption: "Weather · on the screen" },
+];
+
 function DashboardMockup() {
   return (
     <div className="bg-[#111] rounded-2xl overflow-hidden border border-[#2a2a2a]">
@@ -18,59 +24,44 @@ function DashboardMockup() {
       </div>
 
       <div className="p-5">
-        <div className="flex items-center justify-between mb-5">
-          <span className="font-[family-name:var(--font-newsreader)] text-sm text-[#f5f3ed]">
-            My Displays
+        <p className="font-[family-name:var(--font-newsreader)] text-sm text-[#f5f3ed] mb-3">
+          What should your home know?
+        </p>
+        <div className="flex items-center justify-between gap-3 bg-[#1a1a1a] rounded-lg border border-[#2a2a2a] px-3 py-2 mb-6">
+          <span className="text-[10px] text-[#555] truncate">
+            Write a note, paste a link, drop a picture…
+          </span>
+          <span className="shrink-0 text-[9px] font-[family-name:var(--font-ibm-plex-mono)] text-[#888] border border-[#333] rounded-full px-2 py-0.5">
+            Just Upload ▾
+          </span>
+        </div>
+
+        <div className="flex items-center justify-between mb-4">
+          <span className="text-[10px] font-[family-name:var(--font-ibm-plex-mono)] text-[#555] uppercase tracking-wider">
+            Your displays
           </span>
           <span className="text-[10px] font-[family-name:var(--font-ibm-plex-mono)] text-[#555]">
-            3 online
+            3 of 3 online
           </span>
         </div>
 
         <div className="grid grid-cols-2 gap-3 mb-4">
-          <div className="bg-[#1a1a1a] rounded-lg p-3 border border-[#2a2a2a]">
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-xs text-[#f5f3ed]">Kitchen</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-[#28c840]" />
+          {cards.map((card) => (
+            <div key={card.room} className="bg-[#1a1a1a] rounded-lg p-3 border border-[#2a2a2a]">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-xs text-[#f5f3ed]">{card.room}</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-[#28c840]" />
+              </div>
+              <div className="space-y-1.5">
+                {card.widths.map((width) => (
+                  <div key={width} className={`h-1.5 bg-[#2a2a2a] rounded ${width}`} />
+                ))}
+              </div>
+              <span className="text-[9px] text-[#555] mt-2 block font-[family-name:var(--font-ibm-plex-mono)]">
+                {card.caption}
+              </span>
             </div>
-            <div className="space-y-1.5">
-              <div className="h-1.5 bg-[#2a2a2a] rounded w-full" />
-              <div className="h-1.5 bg-[#2a2a2a] rounded w-3/4" />
-              <div className="h-1.5 bg-[#2a2a2a] rounded w-1/2" />
-            </div>
-            <span className="text-[9px] text-[#555] mt-2 block font-[family-name:var(--font-ibm-plex-mono)]">
-              Grocery list
-            </span>
-          </div>
-
-          <div className="bg-[#1a1a1a] rounded-lg p-3 border border-[#2a2a2a]">
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-xs text-[#f5f3ed]">Study</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-[#28c840]" />
-            </div>
-            <div className="space-y-1.5">
-              <div className="h-1.5 bg-[#2a2a2a] rounded w-full" />
-              <div className="h-1.5 bg-[#2a2a2a] rounded w-5/6" />
-              <div className="h-1.5 bg-[#2a2a2a] rounded w-2/3" />
-            </div>
-            <span className="text-[9px] text-[#555] mt-2 block font-[family-name:var(--font-ibm-plex-mono)]">
-              Calendar
-            </span>
-          </div>
-
-          <div className="bg-[#1a1a1a] rounded-lg p-3 border border-[#2a2a2a]">
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-xs text-[#f5f3ed]">Hallway</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-[#28c840]" />
-            </div>
-            <div className="space-y-1.5">
-              <div className="h-1.5 bg-[#2a2a2a] rounded w-full" />
-              <div className="h-1.5 bg-[#2a2a2a] rounded w-4/5" />
-            </div>
-            <span className="text-[9px] text-[#555] mt-2 block font-[family-name:var(--font-ibm-plex-mono)]">
-              Weather
-            </span>
-          </div>
+          ))}
 
           <div className="bg-[#1a1a1a] rounded-lg p-3 border border-dashed border-[#333] flex items-center justify-center min-h-[88px]">
             <span className="text-[#333] text-lg">+</span>
@@ -79,10 +70,10 @@ function DashboardMockup() {
 
         <div className="flex items-center justify-between pt-3 border-t border-[#2a2a2a]">
           <span className="text-[10px] text-[#555] font-[family-name:var(--font-ibm-plex-mono)]">
-            Last sync: just now
+            Reading your notes · 3 read
           </span>
           <span className="text-[10px] text-[#555] font-[family-name:var(--font-ibm-plex-mono)]">
-            ↻
+            ●
           </span>
         </div>
       </div>
@@ -117,9 +108,10 @@ export default function PortalHero() {
             variants={riseIn(0.15)}
             className="text-lg text-[#888] leading-relaxed max-w-lg"
           >
-            Your cloud dashboard for ambient life. Manage what appears on every
-            display, sync with the tools you already use, and let AI handle the
-            rest.
+            Your cloud dashboard for ambient life. Send a note, a link, a
+            picture, or a PDF — from the browser, from your Mac, or from any
+            app with one shortcut. Say whether it should become a card, then
+            watch inklet&apos;s agent lay it out, choose a panel, and deliver it.
           </motion.p>
           <motion.div
             initial="hidden"

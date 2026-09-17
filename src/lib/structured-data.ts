@@ -121,7 +121,7 @@ export function getPortalJsonLd() {
     applicationCategory: "ProductivityApplication",
     operatingSystem: "Web, iOS, macOS",
     description:
-      "Manage every inklet e-ink display from one dashboard — push notes and PDFs, sync Notion, Craft, and Obsidian, and let AI route content by room.",
+      "Manage every inklet e-ink display from one dashboard — send notes, links, pictures, and PDFs from the web, your Mac, or any app, watch inklet's agent lay them out, and control what each panel shows.",
   };
 }
 
