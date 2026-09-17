@@ -23,6 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     { url: siteUrl("/developers") },
     { url: siteUrl("/privacy-policy") },
+    { url: siteUrl("/terms-of-service") },
   ];
 
   const posts: MetadataRoute.Sitemap = journalPosts.map((post) => ({

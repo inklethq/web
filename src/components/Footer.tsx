@@ -27,7 +27,7 @@ const companyLinks = [
 
 const legalLinks = [
   { label: "Privacy Policy", href: "/privacy-policy" },
-  { label: "Terms of Service", soon: true },
+  { label: "Terms of Service", href: "/terms-of-service" },
 ];
 
 export default function Footer() {
@@ -61,6 +61,14 @@ export default function Footer() {
                 </a>
               ))}
             </div>
+
+            <address className="not-italic text-xs text-[#aaa] leading-relaxed mt-6">
+              inklet LLC
+              <br />
+              119 S Western Ave Unit 1 #652
+              <br />
+              Chicago, IL 60612 US
+            </address>
           </div>
 
           <div className="flex flex-wrap gap-x-16 gap-y-10 md:gap-24">
