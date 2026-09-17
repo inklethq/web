@@ -4,10 +4,11 @@ import PortalFeatures from "@/components/PortalFeatures";
 import PortalShowcase from "@/components/PortalShowcase";
 import PortalDownload from "@/components/PortalDownload";
 import { getPortalJsonLd } from "@/lib/structured-data";
+import { getMacReleases } from "@/lib/releases";
 
 const TITLE = "inklet Portal - Dashboard for E-Ink Displays";
 const DESCRIPTION =
-  "inklet Portal manages every inklet e-ink display from one dashboard — push notes and PDFs, sync Notion, Craft and Obsidian, and let AI route content by room.";
+  "inklet Portal manages every inklet e-ink display from one dashboard — send notes, links, pictures, and PDFs from the web, your Mac, or any app, watch inklet's agent lay them out, and control what each panel shows.";
 
 export const metadata = createPageMetadata({
   title: TITLE,
@@ -15,13 +16,15 @@ export const metadata = createPageMetadata({
   path: "/portal",
 });
 
-export default function PortalPage() {
+export default async function PortalPage() {
+  const mac = await getMacReleases();
+
   return (
     <div className="bg-[#1a1a1a] text-[#f5f3ed] -mt-16 pt-16">
       <PortalHero />
       <PortalFeatures />
       <PortalShowcase />
-      <PortalDownload />
+      <PortalDownload mac={mac} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(getPortalJsonLd()) }}
