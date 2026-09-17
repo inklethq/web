@@ -63,11 +63,9 @@ export default function Footer() {
             </div>
 
             <address className="not-italic text-xs text-[#aaa] leading-relaxed mt-6">
-              inklet LLC
-              <br />
               119 S Western Ave Unit 1 #652
               <br />
-              Chicago, IL 60612 US
+              Chicago, IL 60612, United States
             </address>
           </div>
 
