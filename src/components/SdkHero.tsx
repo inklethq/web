@@ -1,6 +1,13 @@
 import Rise from "@/components/Rise";
 import CodeBlock from "@/components/CodeBlock";
-import { DOCS_URL, GITHUB_URL, PACKAGE_NAME, SDK_VERSION } from "@/data/sdk";
+import {
+  DOCS_URL,
+  GITHUB_URL,
+  LICENSE,
+  NODE_MIN_VERSION,
+  PACKAGE_NAME,
+  SDK_VERSION,
+} from "@/data/sdk";
 
 const EXAMPLE = `import { Inklet } from "@inklethq/sdk";
 
@@ -37,7 +44,8 @@ export default function SdkHero() {
               A server-side TypeScript client for the paper on your walls. Hand
               it text, a link, an image, or a PDF — inklet does the layout,
               picks the room, and renders for the panel. Follow the agent while
-              it works, or skip the AI and put a picture up as-is.
+              it works, ask it about anything you have saved, or skip the AI
+              and put a picture up as-is.
             </p>
           </Rise>
 
@@ -47,7 +55,7 @@ export default function SdkHero() {
               <span className="text-[#c9c6be]">npm install {PACKAGE_NAME}</span>
             </div>
             <p className="text-[11px] font-[family-name:var(--font-ibm-plex-mono)] text-[#555] mt-2.5 tracking-wide">
-              {`v${SDK_VERSION} · Node 20+ · ESM & CommonJS`}
+              {`v${SDK_VERSION} · Node ${NODE_MIN_VERSION}+ · ESM & CommonJS · ${LICENSE}`}
             </p>
           </Rise>
 

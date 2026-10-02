@@ -1,4 +1,10 @@
-import { GITHUB_URL, PACKAGE_NAME, SDK_VERSION } from "@/data/sdk";
+import {
+  GITHUB_URL,
+  LICENSE_URL,
+  NODE_MIN_VERSION,
+  PACKAGE_NAME,
+  SDK_VERSION,
+} from "@/data/sdk";
 import { SITE_NAME, siteUrl } from "@/lib/site";
 
 export function getWebSiteJsonLd() {
@@ -133,12 +139,13 @@ export function getSdkJsonLd() {
     url: siteUrl("/developers"),
     alternateName: PACKAGE_NAME,
     applicationCategory: "DeveloperApplication",
-    operatingSystem: "Node.js 20+",
+    operatingSystem: `Node.js ${NODE_MIN_VERSION}+`,
+    license: LICENSE_URL,
     softwareVersion: SDK_VERSION,
     programmingLanguage: "TypeScript",
     codeRepository: GITHUB_URL,
     description:
-      "Server-side TypeScript SDK for inklet e-ink displays — upload text, links, images, and PDFs, run inklet's agent over them, follow each run's event stream, and control what every panel shows.",
+      "Server-side TypeScript SDK for inklet e-ink displays — upload text, links, images, and PDFs, run inklet's agent over them, follow each run's event stream, ask it about everything you saved, and control what every panel shows.",
     offers: {
       "@type": "Offer",
       price: "0",

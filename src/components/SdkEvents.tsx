@@ -19,7 +19,7 @@ for await (const ev of inklet.analyses.timeline(analysis.id)) {
   if (ev.level !== "info") console.warn(ev.summary);
 }`;
 
-/** The public stream, stage by stage. Sixteen types and nothing else. */
+/** The public stream, stage by stage. Twenty types and nothing else. */
 const stages = [
   {
     stage: "Accepted",
@@ -41,6 +41,10 @@ const stages = [
     stage: "Finished",
     types: ["analysis.completed", "analysis.failed"],
   },
+  {
+    stage: "Ask inklet",
+    types: ["assistant.delta", "assistant.citation", "action.card_created", "action.display_switched"],
+  },
 ];
 
 export default function SdkEvents() {
@@ -58,11 +62,12 @@ export default function SdkEvents() {
             <p className="text-[#888] leading-relaxed max-w-md mb-10">
               An Analysis publishes an ordered event stream: what the agent was
               given, what it is reading, what it planned, and how the result was
-              rendered and delivered. It streams over server-sent events,
+              rendered and delivered — or, for a question, the answer as it is
+              written. It streams over server-sent events,
               resumes from the last event if the connection drops, falls back
               to polling behind a proxy that cannot stream, and ends on its own
-              when the run does. Every event becomes one English line — the
-              same line the Portal shows.
+              when the run does. Every event also reads as one plain English
+              line, ready to put in front of a person.
             </p>
 
             <ul className="border-t border-[#2a2a2a] mb-8">

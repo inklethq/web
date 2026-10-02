@@ -23,7 +23,7 @@ try {
     // A Pro-only run on the Free plan. Upgrade, then retry.
   } else if (error instanceof RateLimitError) {
     // quota_exceeded clears at details.resetAt;
-    // rate_limited clears with back-off.
+    // rate_limited clears after error.retryAfterMs.
   } else if (error instanceof InkletError) {
     console.error(error.code, error.requestId, error.details);
   }
@@ -36,15 +36,23 @@ const guardrails = [
   },
   {
     title: "Uploads never carry the token",
-    body: "Binary assets go straight to temporary storage URLs. The token is sent only to inklet endpoints, and requests refuse absolute URLs and cross-origin redirects.",
+    body: "Binary assets go straight to temporary storage URLs. The token is sent only to inklet endpoints, and requests refuse absolute URLs and follow no redirects.",
   },
   {
     title: "Safe to replay",
-    body: "Every Content and every Analysis is created under an idempotency key — yours, or one the SDK generates and hands back. Replaying a key returns the original resource, and the same key with a different body is a conflict, so a retry is the same call, never a second one.",
+    body: "Every Content and every Analysis is created under an idempotency key — yours, or one the SDK generates and hands back. Replaying a key returns the original resource, and the same key with a different body is a conflict. An error from such a call carries the key it used, so a retry is the same call, never a second one.",
   },
   {
     title: "Errors you can act on",
     body: "Every error extends InkletError and keeps the backend code, HTTP status, request ID, and structured details. The class comes from the status; the code and details are the stable parts. Messages are for logs — never branch on them.",
+  },
+  {
+    title: "Bounded in time",
+    body: "Every request has a timeout — 60 seconds, and five minutes for a storage upload — and every call takes a signal and a timeoutMs of its own. The waiting helpers and timeline() ride out up to three transient failures with back-off and honour Retry-After, and watch() reconnects where it left off. Calls that create or change something are never retried for you.",
+  },
+  {
+    title: "Open to what the backend adds",
+    body: "Fields the backend reports as a fixed set of words — a state, a mode, an activity's kind — are typed as the values this SDK knows plus any other string. A value it has never seen reads through, a waiting helper treats an unknown state as not finished, and nothing installed breaks.",
   },
 ];
 
@@ -78,26 +86,26 @@ export default function SdkGuardrails() {
           <div className="space-y-8">
             <div>
               <h3 className="font-[family-name:var(--font-newsreader)] text-xl mb-3">
-                Or keep it off the cloud entirely
+                Choose where requests go
               </h3>
               <p className="text-[#888] leading-relaxed text-[15px] max-w-md">
-                The service address defaults to{" "}
+                Requests go to{" "}
                 <span className="font-[family-name:var(--font-ibm-plex-mono)] text-[13px] text-[#c9c6be]">
                   {API_BASE_URL.replace("https://", "")}
                 </span>{" "}
-                while the SDK is in developer preview. Point{" "}
+                by default.{" "}
                 <span className="font-[family-name:var(--font-ibm-plex-mono)] text-[13px] text-[#c9c6be]">
                   baseUrl
                 </span>{" "}
-                at a{" "}
+                points the same code at another inklet service — a local or
+                test instance today, and a{" "}
                 <Link
                   href="/hub"
                   className="text-[#c9c6be] underline underline-offset-4 decoration-[#444] hover:text-[#f5f3ed] hover:decoration-[#888] transition-colors"
                 >
                   Compute Hub
                 </Link>{" "}
-                instead and the same code runs without anything leaving your
-                network.
+                on your own network once Hub ships, so nothing has to leave it.
               </p>
             </div>
 
