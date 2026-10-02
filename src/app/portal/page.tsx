@@ -2,6 +2,7 @@ import { createPageMetadata } from "@/lib/metadata";
 import PortalHero from "@/components/PortalHero";
 import PortalFeatures from "@/components/PortalFeatures";
 import PortalShowcase from "@/components/PortalShowcase";
+import PortalDisplays from "@/components/PortalDisplays";
 import PortalDownload from "@/components/PortalDownload";
 import { getPortalJsonLd } from "@/lib/structured-data";
 import { getMacReleases } from "@/lib/releases";
@@ -24,6 +25,7 @@ export default async function PortalPage() {
       <PortalHero />
       <PortalFeatures />
       <PortalShowcase />
+      <PortalDisplays />
       <PortalDownload mac={mac} />
       <script
         type="application/ld+json"

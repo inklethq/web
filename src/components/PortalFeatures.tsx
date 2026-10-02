@@ -1,52 +1,46 @@
+import { TbBooks, TbLayoutCards, TbMessageCircleQuestion, TbSend } from "react-icons/tb";
+import type { IconType } from "react-icons";
 
-const features = [
+const features: { Icon: IconType; title: string; body: string }[] = [
   {
-    number: "01",
-    title: "One dashboard, every display",
-    description:
-      "See what is on every panel, what has been sent and is waiting for it to wake, and everything it has shown before. Move to the next card, put an earlier one back, or send straight to one display. The Mac app also sets up Virtual Displays for your desktop and connects a Dot. Quote/0 through its own cloud.",
+    Icon: TbSend,
+    title: "Send from anywhere",
+    body: "The browser, the Mac app, or ⇧⌘I in any other app on your Mac.",
   },
   {
-    number: "02",
-    title: "A second brain that keeps everything",
-    description:
-      "Every note, link, picture, and PDF you send is kept in Knowledge, sorted into pending and organized as the agent works through it. Search reaches the whole library — note text, link addresses, filenames, and what inklet read out of your images and PDFs — and on the Mac any item opens in place.",
+    Icon: TbLayoutCards,
+    title: "The right card, the right panel",
+    body: "inklet lays it out and picks the display — or you name one.",
   },
   {
-    number: "03",
-    title: "AI that shows its work",
-    description:
-      "Let inklet choose the panel, or name one yourself. The agent reads your notes, checks the display, and picks a layout, and every run keeps a live timeline — under Analyses in the browser and History on the Mac, where a picture on a display also opens the run that made it. Uploading, and showing a picture as-is, never spend an AI run.",
+    Icon: TbBooks,
+    title: "Nothing gets lost",
+    body: "Knowledge keeps every note, link, picture, and PDF, and searches all of it.",
   },
   {
-    number: "04",
-    title: "Ask it anything you saved",
-    description:
-      "Ask inklet is a conversation with your Knowledge — Ask in the browser, ⇧⌘A on the Mac. The agent searches and reads your notes, answers with the ones it drew on, and only when you ask makes a card or puts an earlier picture back on a display. On the Mac, every answer links to the run behind it. Ask is part of Pro.",
+    Icon: TbMessageCircleQuestion,
+    title: "Ask what you saved",
+    body: "A conversation with your Knowledge, in the browser and on the Mac. Part of Pro.",
   },
 ];
 
 export default function PortalFeatures() {
   return (
-    <section className="py-32">
+    <section className="py-24">
       <div className="max-w-6xl mx-auto px-6">
-        <h2 className="font-[family-name:var(--font-newsreader)] text-4xl md:text-5xl font-light text-center mb-20">
+        <h2 className="font-[family-name:var(--font-newsreader)] text-4xl md:text-5xl font-light text-center mb-16">
           Your displays, orchestrated.
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-14">
-          {features.map((feature) => (
-            <div
-              key={feature.number}
-            >
-              <span className="font-[family-name:var(--font-ibm-plex-mono)] text-sm text-[#555] tracking-wider">
-                {feature.number}
-              </span>
-              <h3 className="font-[family-name:var(--font-newsreader)] text-2xl mt-3 mb-4">
-                {feature.title}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-12">
+          {features.map(({ Icon, title, body }) => (
+            <div key={title}>
+              <Icon size={22} strokeWidth={1.5} className="text-[#777] mb-4" aria-hidden="true" />
+              <h3 className="font-[family-name:var(--font-newsreader)] text-xl mb-2">
+                {title}
               </h3>
-              <p className="text-[#888] leading-relaxed text-[15px]">
-                {feature.description}
+              <p className="text-[#888] leading-relaxed text-[14.5px]">
+                {body}
               </p>
             </div>
           ))}
