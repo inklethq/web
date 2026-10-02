@@ -22,7 +22,7 @@ const features = [
     number: "04",
     title: "Ask it anything you saved",
     description:
-      "Ask inklet is a conversation with your Knowledge — Ask in the browser, ⌘⇧A on the Mac. The agent searches and reads your notes, answers with the ones it drew on, and only when you ask makes a card or puts an earlier picture back on a display. On the Mac, every answer links to the run behind it. Ask is part of Pro.",
+      "Ask inklet is a conversation with your Knowledge — Ask in the browser, ⇧⌘A on the Mac. The agent searches and reads your notes, answers with the ones it drew on, and only when you ask makes a card or puts an earlier picture back on a display. On the Mac, every answer links to the run behind it. Ask is part of Pro.",
   },
 ];
 
