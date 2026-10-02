@@ -1,4 +1,12 @@
-import { CHANGELOG_URL, DOCS_URL, GITHUB_URL, NPM_URL, PACKAGE_NAME } from "@/data/sdk";
+import {
+  CHANGELOG_URL,
+  DOCS_URL,
+  GITHUB_URL,
+  LICENSE,
+  NODE_MIN_VERSION,
+  NPM_URL,
+  PACKAGE_NAME,
+} from "@/data/sdk";
 
 const steps = [
   {
@@ -9,7 +17,7 @@ const steps = [
   {
     number: "02",
     title: "Install the package",
-    body: `npm install ${PACKAGE_NAME} — Node 20 or newer, ESM or CommonJS, types included.`,
+    body: `npm install ${PACKAGE_NAME} — Node ${NODE_MIN_VERSION} or newer, ESM or CommonJS, types included, ${LICENSE} licensed.`,
   },
   {
     number: "03",
@@ -32,9 +40,9 @@ export default function SdkStart() {
           Start with a token.
         </h2>
         <p className="text-[15px] text-[#888] text-center mb-16 max-w-lg mx-auto leading-relaxed">
-          The SDK is at 0.2 and still in developer preview. The surface is
-          small on purpose and stable enough to build on; breaking changes are
-          listed in the changelog with what to change.
+          The SDK is pre-1.0. A minor release can change the API and lists
+          every break in the changelog with what to change; a patch release
+          never does, so the default caret range stays safe.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 mb-16">

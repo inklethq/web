@@ -46,7 +46,7 @@ const columns = [
   {
     title: "Generate a Presentation without a display",
     body:
-      "For software-only surfaces — a widget, a screensaver, a test. Generating is an upload plus an analysis with an output target: it registers nothing, queues nothing, and produces versioned Scene JSON with PNG renditions. A stored Scene renders again at another size without a second AI run.",
+      "For software-only surfaces — a widget, a screensaver, a test. Generating is an upload plus an analysis with an output target: it registers nothing, queues nothing, and produces versioned Scene JSON with PNG renditions. Hand it a finished image instead and no AI runs at all. A stored Scene renders again at another size without a second AI run.",
     code: GENERATE,
     filename: "generate.ts",
   },
@@ -63,8 +63,10 @@ export default function SdkControl() {
           Two things a push cannot do.
         </h2>
         <p className="text-[#888] leading-relaxed max-w-xl mb-16">
-          Neither of these runs the agent over your Contents again, and neither
-          spends an AI allowance.
+          Switching what a panel shows runs no AI and uses neither your AI
+          allowance nor your daily pushes. Generating runs the agent once, like
+          any card, so it needs Pro — but rendering the result at another size
+          never runs it again.
         </p>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-14 items-start">

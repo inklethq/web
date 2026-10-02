@@ -12,8 +12,8 @@ const analysis = await inklet.analyze({
   intent: "Make a reminder card",
 });
 
-// 3. Wait for the run. A history-only run can queue
-//    for a while, so raise timeoutMs for those.
+// 3. Wait for the run. Runs that read your history
+//    queue one at a time, so raise timeoutMs for those.
 const done = await inklet.analyses.wait(analysis);
 
 if (done.outcome === "presentations") {

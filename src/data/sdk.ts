@@ -5,7 +5,11 @@
  */
 
 export const PACKAGE_NAME = "@inklethq/sdk";
-export const SDK_VERSION = "0.2.2";
+export const SDK_VERSION = "0.4.2";
+/** `engines.node` in the package: Node.js 20 reached end of life in April 2026. */
+export const NODE_MIN_VERSION = 22;
+export const LICENSE = "MIT";
+export const LICENSE_URL = "https://opensource.org/license/mit";
 
 export const GITHUB_URL = "https://github.com/inklethq/sdk";
 export const CHANGELOG_URL = `${GITHUB_URL}/blob/main/CHANGELOG.md`;
@@ -25,4 +29,4 @@ export const MAX_ASSET_SIZE_MIB = 10;
 export const MAX_ASSETS_PER_CONTENT = 50;
 
 /** Event types a public Analysis stream can carry. A closed set, by design. */
-export const ANALYSIS_EVENT_TYPE_COUNT = 16;
+export const ANALYSIS_EVENT_TYPE_COUNT = 20;
