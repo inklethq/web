@@ -24,9 +24,9 @@ const items: Item[] = [
     label: "Compose",
     title: "Say what should happen to it",
     description:
-      "Write a note, paste a link, drop a picture or a PDF. The send button says exactly what it will do: Just upload keeps it in Knowledge, Make a card asks the agent for a layout, and Make a card using my recent notes adds the last seven days. A picture on its own can also go up as-is, with no AI at all. Pick a display, or let inklet choose.",
+      "Write a note, paste a link, drop a picture or a PDF. The send button says what it will do — keep it in Knowledge with no AI run, make a card from it, or make a card from it and your last seven days of notes — and a lone picture can go up as-is, with no AI at all. ⌥1 to ⌥4 pick the action and ⌘↩ sends. Pick a display, or let inklet choose.",
     src: "/portal/portal-composer-menu.png",
-    alt: "The inklet Portal composer with its send menu open: Just upload, Make a card, Make a card using my recent notes",
+    alt: "The inklet Portal composer with its send menu open",
     width: 2012,
     height: 518,
     wide: true,
@@ -46,7 +46,7 @@ const items: Item[] = [
     label: "Displays",
     title: "Know what is on every panel",
     description:
-      "Each display has one page: what is on the screen now, what is up next, and everything it has shown before. Show next moves through the queue, and any earlier card can go back up. Battery and last seen for a hardware display; canvas, resolution, and revision for a virtual one.",
+      "Each display has one page: what is on the screen now, what is up next, and everything it has shown before. Show next moves through the queue, any earlier card can go back up, and any picture opens the run that made it. Battery and last seen for an inklet panel; canvas, resolution, and revision for a virtual one; serial and cloud reachability for a Quote/0.",
     src: "/portal/portal-virtual-display.png",
     alt: "A display page in inklet Portal with the current frame, up next, device details, and queue and history",
     width: 2172,
@@ -56,7 +56,7 @@ const items: Item[] = [
     label: "Virtual Display",
     title: "A panel that lives on your desktop",
     description:
-      "Not every idea needs hardware. A Virtual Display is a canvas for a widget on your Mac, iPhone, or iPad — pick a size, and inklet renders to it the same way it renders to paper. Pair a hardware display when you want the room to have it too.",
+      "Not every idea needs hardware. A Virtual Display is a canvas for a widget on your Mac desktop — pick a size, and inklet renders to it the same way it renders to paper. The same page connects a Dot. Quote/0 you already own with its API key, and is where an inklet D1 will pair.",
     src: "/portal/portal-new-display.png",
     alt: "The New Display screen in inklet Portal, offering a Hardware Display or a Virtual Display",
     width: 2172,
@@ -66,7 +66,7 @@ const items: Item[] = [
     label: "Knowledge",
     title: "Everything you send is kept",
     description:
-      "Notes, links, pictures, and PDFs land in Knowledge the moment you send them — searchable, and sorted into pending and organized as the agent works through them. Ask for a summary of the last day, week, or month whenever you want one on a wall.",
+      "Notes, links, pictures, and PDFs land in Knowledge the moment you send them, sorted into pending and organized as the agent works through them. Search covers the whole library, down to what inklet read out of an image or a PDF, and any item opens in place. When you want it on a wall, Recent summary makes a card from a new note and your last seven days; in the browser you can summarise the last day, week, or month.",
     src: "/portal/portal-knowledge.png",
     alt: "The Knowledge page in inklet Portal listing saved items under Organized and Pending",
     width: 2172,

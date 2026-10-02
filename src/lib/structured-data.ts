@@ -125,9 +125,9 @@ export function getPortalJsonLd() {
     name: "inklet Portal",
     url: siteUrl("/portal"),
     applicationCategory: "ProductivityApplication",
-    operatingSystem: "Web, iOS, macOS",
+    operatingSystem: "Web, macOS",
     description:
-      "Manage every inklet e-ink display from one dashboard — send notes, links, pictures, and PDFs from the web, your Mac, or any app, watch inklet's agent lay them out, and control what each panel shows.",
+      "Manage every inklet e-ink display from one dashboard — send notes, links, pictures, and PDFs from the web, your Mac, or any app, ask inklet about everything you saved, and control what each panel shows.",
   };
 }
 

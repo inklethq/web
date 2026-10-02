@@ -8,7 +8,7 @@ import { getMacReleases } from "@/lib/releases";
 
 const TITLE = "inklet Portal - Dashboard for E-Ink Displays";
 const DESCRIPTION =
-  "inklet Portal manages every inklet e-ink display from one dashboard — send notes, links, pictures, and PDFs from the web, your Mac, or any app, watch inklet's agent lay them out, and control what each panel shows.";
+  "inklet Portal manages every inklet e-ink display from one dashboard — send notes, links, pictures, and PDFs from the web, your Mac, or any app, ask inklet about everything you saved, and control what each panel shows.";
 
 export const metadata = createPageMetadata({
   title: TITLE,
