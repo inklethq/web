@@ -15,10 +15,10 @@ const pricing = {
 };
 
 const features = [
-  "AI-powered content routing",
-  "Cloud dashboard",
-  "OTA firmware updates",
-  "Developer SDK",
+  "AI summaries and cards",
+  "Ask about your saved content",
+  "Up to 200 pushes per day",
+  "Full display history",
 ];
 
 const capabilities = [
@@ -113,7 +113,7 @@ export default function StorePortalPricing() {
             rel="noopener noreferrer"
             className="inline-flex items-center px-7 py-3 bg-[#f5f3ed] text-[#1a1a1a] rounded-full text-sm font-medium hover:bg-[#e8e5db] transition-colors"
           >
-            Get Started
+            Get started for free
           </a>
         </div>
 
