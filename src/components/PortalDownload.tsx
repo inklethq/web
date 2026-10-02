@@ -8,7 +8,7 @@ import type { MacReleases } from "@/lib/releases";
 
 type PlatformId = "macos" | "ios" | "windows" | "web";
 
-const MAC_REQUIREMENTS = "Universal · macOS 26+";
+const MAC_REQUIREMENTS = "Universal · macOS 15+";
 
 const platforms: {
   id: PlatformId;
@@ -76,7 +76,7 @@ export default function PortalDownload({ mac }: { mac: MacReleases }) {
           Ready to orchestrate your ambient life?
         </p>
         <p className="text-sm text-[#888] text-center mb-14 max-w-lg mx-auto leading-relaxed">
-          The native macOS app opens from any app with a shortcut or the Services menu, follows each run from the menu bar, and puts your displays on the desktop as widgets. The web dashboard works everywhere. iOS adds display pairing.
+          The native macOS app opens from any app with a shortcut or the Services menu, answers questions about what you saved with Pro, and puts Virtual Displays on your desktop as widgets. It runs on macOS 15 and later. The web dashboard works everywhere. The iOS app, with display pairing, is coming soon.
         </p>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-6">

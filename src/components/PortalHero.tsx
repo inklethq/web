@@ -110,8 +110,9 @@ export default function PortalHero() {
           >
             Your cloud dashboard for ambient life. Send a note, a link, a
             picture, or a PDF — from the browser, from your Mac, or from any
-            app with one shortcut. Say whether it should become a card, then
-            watch inklet&apos;s agent lay it out, choose a panel, and deliver it.
+            app with one shortcut. Say whether it should become a card, watch
+            inklet&apos;s agent lay it out and deliver it, or ask it a question
+            about everything you have saved.
           </motion.p>
           <motion.div
             initial="hidden"
